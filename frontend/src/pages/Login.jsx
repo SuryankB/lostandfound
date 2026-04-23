@@ -26,32 +26,55 @@ function Login() {
   }
 
   return (
-    <div className="container mt-5">
-      <div className="row justify-content-center">
-        <div className="col-md-5">
-          <div className="card">
-            <div className="card-body">
-              <h2 className="text-center mb-4">Login</h2>
-              {error && <div className="alert alert-danger">{error}</div>}
-              <form onSubmit={handleSubmit}>
-                <div className="mb-3">
-                  <label className="form-label">Email</label>
-                  <input type="email" className="form-control" value={email}
-                    onChange={(e) => setEmail(e.target.value)} required />
-                </div>
-                <div className="mb-3">
-                  <label className="form-label">Password</label>
-                  <input type="password" className="form-control" value={password}
-                    onChange={(e) => setPassword(e.target.value)} required />
-                </div>
-                <button type="submit" className="btn btn-primary w-100">Login</button>
-              </form>
-              <p className="text-center mt-3">
-                Don't have an account? <Link to="/register">Register</Link>
-              </p>
-            </div>
+    <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
+      <div className="card shadow-lg p-4" style={{ width: "380px", borderRadius: "12px" }}>
+        
+        <h3 className="text-center mb-3 fw-bold">Welcome Back </h3>
+        <p className="text-center text-muted mb-4">Login to continue</p>
+
+        {error && (
+          <div className="alert alert-danger py-2 text-center">
+            {error}
           </div>
-        </div>
+        )}
+
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label className="form-label fw-semibold">Email</label>
+            <input
+              type="email"
+              className="form-control"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label fw-semibold">Password</label>
+            <input
+              type="password"
+              className="form-control"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+
+          <button className="btn btn-primary w-100 fw-semibold py-2">
+            Login
+          </button>
+        </form>
+
+        <p className="text-center mt-3 mb-0">
+          Don’t have an account?{" "}
+          <Link to="/register" className="fw-semibold text-decoration-none">
+            Register
+          </Link>
+        </p>
+
       </div>
     </div>
   )
